@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student {{id}}'s Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+
+<body>
+    <h2>Student {{id}}'s Results</h2>
+    <table style="width:15%">
+        <tr>
+            <th>Quiz ID</th>
+            <th>Score</th>
+        </tr>
+        {% for quiz in results %}
+        <tr>
+            {% for cell in quiz %}
+                <td>{{ cell }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+        </tr>
+    </table>
+</body>
+</html>

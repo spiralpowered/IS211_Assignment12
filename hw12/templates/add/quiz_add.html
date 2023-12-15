@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<h2>Add Quiz</h2>
+
+<form method="post">
+    <label for="subject">Subject:</label>
+    <input name="subject" id="subject" required>
+    <div></div>
+    <br>
+    <label for="questions">Questions:</label>
+    <input type=number name="questions" id="questions" required>
+    <div></div>
+    <br>
+    <label for="date">Date:</label>
+    <input type=date name="date" id="date" required>
+    <div></div>
+    <br>
+    <input type="submit" value="Add">
+</form>
+<section class="content">
+  {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+</section>
+</body>
+</html>

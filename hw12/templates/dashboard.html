@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+<body>
+    <h2>Dashboard</h2>
+    <h3>Class</h3>
+    <a href="{{ url_for('student_add') }}">Add Student</a>
+    <table style="width:50%">
+      <tr>
+        <th>Student ID</th>
+        <th>First Name</th>
+        <th>Last name</th>
+        <th>Results</th>
+      </tr>
+      </tr>
+      {% for student in student_list %}
+        <tr>
+            {% for cell in student %}
+                <td>{{ cell }}</td>
+            {% endfor %}
+            <td><a href="{{ url_for('student_view', id=student[0]) }}">View</a></td>
+        </tr>
+      {% endfor %}
+    </table>
+    <h3>Quizzes</h3>
+    <a href="{{ url_for('quiz_add') }}">Add Quiz</a> |
+    <a href="{{ url_for('result_add') }}">Add Quiz Result</a>
+    <table style="width:50%">
+      <tr>
+        <th>Quiz ID</th>
+        <th>Subject</th>
+        <th>Questions</th>
+        <th>Date Given</th>
+      </tr>
+      {% for quiz in quiz_list %}
+        <tr>
+            {% for cell in quiz %}
+                <td>{{ cell }}</td>
+            {% endfor %}
+        </tr>
+      {% endfor %}
+    </table>
+</body>
+</html>

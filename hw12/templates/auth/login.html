@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Login</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+<body>
+
+<h2>Login</h2>
+
+<form method="post">
+    <label for="username">Username</label>
+    <input name="username" id="username" required>
+    <div></div>
+    <br>
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" required>
+    <div></div>
+    <br>
+    <input type="submit" value="Log In">
+</form>
+<section class="content">
+  {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+</section>
